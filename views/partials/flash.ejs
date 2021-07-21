@@ -1,0 +1,15 @@
+ <!-- //change class from warnin to success to change background color to green from red -->
+ <% if(success && success.length){ %> <!--success.length means agr success exist hi nhi krta then koi fayada nhi hai to show-->
+  <div class="alert alert-success alert-dismissible fade show mt-2" role="alert" style="text-align: center; color: red; font-weight: 800;">
+    <strong> <%= success %> </strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+<% } %> 
+
+<%if(error && error.length){%>
+  <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert" style="text-align: center; color: red; font-weight: 800;">
+    <strong> <%= error %> </strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>  
+<%}%>

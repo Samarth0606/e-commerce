@@ -1,0 +1,73 @@
+
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %> 
+
+    <h1 style="text-align: center;">FORM FOR ADDING NEW PRODUCT</h1>
+    
+
+    <div class="container">
+    <form class="validated-form" action="/products" method="POST" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name of Product: </label>
+          <input type="text" class="form-control" id="name" placeholder="Enter the name of product: " name="product[name]" required>
+          <!-- <dv id="emailHelp" class="form-text">We'll never share your email imagev> -->
+            <div class="valid-feedback">   <!-- // valid feedback is for the looking for its betterment and to give acknowledgement that this is filled -->
+              Looks good!
+            </div>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label" >Image URL: </label>
+          <input type="text" class="form-control" id="image" placeholder="Enter the image URL: " name="product[image]" required>
+          <div class="valid-feedback">   <!-- // valid feedback is for the looking for its betterment and to give acknowledgement that this is filled -->
+            Looks good!
+          </div>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label" >Price in Rs: </label>
+            <input type="number" class="form-control" id="price" placeholder="Enter the price: " name="product[price]" required>
+            <div class="valid-feedback">   <!-- // valid feedback is for the looking for its betterment and to give acknowledgement that this is filled -->
+              Looks good!
+            </div>
+          </div>
+        <div>
+            <label for="desc" class="form-label">Description: </label>
+            <textarea id="desc" cols="30" rows="6" class="form-control" placeholder="Enter description here: " name="product[desc]" required></textarea>
+            <div class="valid-feedback">   <!-- // valid feedback is for the looking for its betterment and to give acknowledgement that this is filled -->
+              Looks good!
+            </div>
+          </div>
+        <!-- //here we have made an objet of product i.e name idk why  -->
+        <!-- <textarea name="desc" id="desc" cols="50" rows="5" placeholder="Enter the description: " style="cursor: pointer; margin: 10px auto;"></textarea> -->
+        <br><br>
+      
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+
+
+    </div>
+
+    <!-- script ke andr forms and then validation ke andr jaakr hume sirf function copy krna h -->
+    <!-- <script>
+          (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.validated-form')  // here class change karni hai and var ki jagah const dena hai
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+              .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+
+                  form.classList.add('was-validated')
+                }, false)
+              })
+          })()
+    </script> -->
+
+    
+<%- include("../partials/footer") %> 

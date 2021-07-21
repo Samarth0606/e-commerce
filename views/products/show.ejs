@@ -1,0 +1,112 @@
+
+    <%- include("../partials/header") %> 
+    <%- include("../partials/navbar") %> 
+    <link rel="stylesheet" href="/css/star.css">
+    <h1 style="text-align: center;">Showing a particular product</h1>
+
+    <!-- //displaying the msg of flash here -->
+    <%- include("../partials/flash") %> 
+   
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <br><br>
+                <div class="card" style="width: 20rem; height: 485px; width: 350px;">
+                    <img src="<%= product.image %> " class="card-img-top" alt="..." style="height: 270px;">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= product.name %> </h5>
+                      <h5 class="card-title"><%= product.price %> Rs </h5>
+                      <p class="card-text"><%= product.desc %> </p>
+                      <a href="/products" class="btn btn-secondary"> Go back</a>
+                      <a href="#" class="btn btn-success"> Buy</a>
+                      <a href="/products/<%= product._id %>/edit" class="btn btn-primary"> Edit </a>
+                      <!-- <a href="#" class="btn btn-danger"> Delete</a> -->
+                      <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger mt-2">Delete</button>
+                      </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <br><br>
+                <h1><u>Leave a Review</u> </h1>
+                <form class="validated-form" action="/products/<%=product._id%>/review" method="POST" style="width: 450px;" novalidate>
+
+                    <div class="mb-3">
+                        <!-- <label class="form-label" for="rating">Rating:</label>
+                        <input type="range" class="form-range" min="0" max="6" name="rating"id="rating" placeholder="Rating" required> -->
+
+                        
+                        <!-- star rating -->
+                        <fieldset class="starability-basic" style="width: 300px;">
+                          <legend>Rating:</legend>
+                          <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                          <input type="radio" id="second-rate1" name="rating" value="1" />
+                          <label for="second-rate1" title="Terrible">1 star</label>
+                          <input type="radio" id="second-rate2" name="rating" value="2" />
+                          <label for="second-rate2" title="Not good">2 stars</label>
+                          <input type="radio" id="second-rate3" name="rating" value="3" />
+                          <label for="second-rate3" title="Average">3 stars</label>
+                          <input type="radio" id="second-rate4" name="rating" value="4" />
+                          <label for="second-rate4" title="Very good">4 stars</label>
+                          <input type="radio" id="second-rate5" name="rating" value="5" />
+                          <label for="second-rate5" title="Amazing">5 stars</label>
+                        </fieldset>
+                        
+                        
+                      </div>
+
+                    <div class="mb-3">                      
+                    <div>
+                        <label for="desc" class="form-label">Review: </label>
+                        <textarea id="desc" cols="25" rows="3" class="form-control" placeholder="Enter your Review here: " name="comment" ></textarea>  <!--removed required for comment-->
+                        <div class="valid-feedback">   <!-- // valid feedback is for the looking for its betterment and to give acknowledgement that this is filled -->
+                          Looks good!
+                        </div>
+                      </div>
+                    <!-- //here we have made an objet of product i.e name idk why  -->
+                    <!-- <textarea name="desc" id="desc" cols="50" rows="5" placeholder="Enter the description: " style="cursor: pointer; margin: 10px auto;"></textarea> -->
+                    <br>
+                  
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+
+
+
+                  <div class="mb-3 mt-3" >
+                    <%for(let review of product.reviews){%>
+                      
+                        <div class="card mb-3" style="height: auto;">
+                            <div class="card-header text-capitalize">
+                             <strong> <%= review.user %> </strong> 
+                            </div>
+                            <h3>&nbsp;&nbsp;Rated element name</h3>
+                            <p class="starability-result" data-rating="<%=review.rating%>">
+                              &nbsp; Rated: <%=review.rating%> stars
+                            </p>
+                          
+                            <div class="card-body">
+                              <h5 class="card-title">&nbsp;Rating : <%=review.rating%></h5>
+                              <p class="card-text">&nbsp;<%=review.comment%></p>
+
+                              <!-- deleting comment -->
+                              <form action="/products/<%= product._id %>/<%=review._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger mt-2">Delete</button>
+                              </form>
+                            <!-- deleting comment till here -->
+
+                            </div>
+                          </div>
+        
+                    <%}%>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    
+
+    <%- include("../partials/footer") %> 

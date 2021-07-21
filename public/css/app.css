@@ -1,0 +1,22 @@
+img{
+    height: 180px;
+    padding: 7px;
+}
+body{
+    background-color: rgb(252, 251, 250);
+}
+.card{
+    height: 360px;
+    /* width: 100px; */
+    border-radius: 15px;
+    /* text-align: center; */
+    margin: 15px;
+}
+/* h1{
+    font-size-adjust: ;
+} */
+/* i::before{
+    margin-left: 10px;
+    margin-right: 10px;
+    content: "\1F6D2";
+} */

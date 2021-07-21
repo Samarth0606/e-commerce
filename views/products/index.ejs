@@ -1,0 +1,49 @@
+
+    <%- include("../partials/header") %> 
+    <%- include("../partials/navbar") %> 
+
+<div class="mt-2 mb-3" style=" height: 110px; background-color: rgb(228, 222, 228);">
+    <h1 style="text-align: center; " class="display-1  "><i class="fab fa-shopify" style="margin-right: 20px;"></i>Shopping Cart</h1>
+</div>
+
+
+
+    <main class="container">
+
+<!-- //to show the popup using res.local -->
+        <%- include("../partials/flash") %> 
+    
+
+       
+
+
+        <div class="row">
+            <!-- <div class="col"> -->
+                <% for(let product of products){%>
+                    <div class="col-lg-4  col-md-8">
+                        <div class="card" style="width: 22rem;">
+                            <img src=<%= product.image %>  class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title"><%= product.name %> </h5>
+                              <p class="card-text"><%= product.desc %> </p>
+                              <a href="/products/<%= product._id %>" class="btn btn-primary">Show</a>
+                              <a href="#" class="btn btn-success">Buy</a>
+                              <a href="#" class="btn btn-secondary ">Add To Cart</a>
+                            </div>
+                          </div>
+                    </div>
+                <% }  %> 
+
+            <!-- </div> -->
+            
+        </div>
+    </div>
+
+
+    
+    <!-- //including footer file -->
+    <%- include("../partials/footer") %> 
+
+    
+<!-- </body>
+</html> -->

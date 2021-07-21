@@ -1,0 +1,44 @@
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %> 
+
+    <h1 style="text-align: center;">FORM FOR ADDING NEW USER</h1>
+    
+
+    <div class="container">
+    
+      <h4 style="font-weight: 800; color: red;" class="diplay-3">Sign up <i class="fas fa-user-plus"></i> </h4>
+      <%- include("../partials/flash") %> 
+
+    <form class="validated-form" action="/register" method="POST" novalidate>
+        <div class="mb-3" style="font-weight: 600; color: red;">
+          <label for="username" class="form-label">Username: </label>
+          <input type="text" class="form-control" id="username" placeholder="Enter the username: " name="username" required>
+          <!-- <dv id="emailHelp" class="form-text">We'll never share your email imagev> -->
+            <div class="valid-feedback">   <!-- // valid feedback is for the looking for its betterment and to give acknowledgement that this is filled -->
+              Looks good!
+            </div>
+        </div>
+        <div class="mb-3" style="font-weight: 600; color: red;">
+          <label for="password" class="form-label" >Password: </label>
+          <input type="password" class="form-control" id="password" placeholder="Enter the password: " name="password" required>
+          <div class="valid-feedback">   <!-- // valid feedback is for the looking for its betterment and to give acknowledgement that this is filled -->
+            Looks good!
+          </div>
+        </div>
+        <div class="mb-3" style="font-weight: 600; color: red;">
+            <label for="email" class="form-label" >Email </label>
+            <input type="email" class="form-control" id="email" placeholder="Enter the email: " name="email" required>
+            <div class="valid-feedback">   <!-- // valid feedback is for the looking for its betterment and to give acknowledgement that this is filled -->
+              Looks good!
+            </div>
+          </div>
+        
+        
+        <br><br>
+      
+        <button type="submit" class="btn btn-primary">Sign up</button>
+      </form>
+
+
+    </div>   
+<%- include("../partials/footer") %> 

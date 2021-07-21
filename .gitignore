@@ -1,0 +1,5 @@
+node_modules/
+package-lock.json
+.DS_Store
+
+# npm install (npm init-y)* and then npm start tab hi chalega else nhi
