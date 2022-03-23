@@ -20,6 +20,10 @@ const productSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    category:{
+        type: String
+    },
+
     reviews:[
         {
             type:mongoose.Schema.Types.ObjectId,   // schema jo banaya hai uski harr id ko array mei dala hai 

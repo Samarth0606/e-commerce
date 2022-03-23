@@ -4,38 +4,76 @@ const Product = require('./models/product');
 //making array so that intially if database is dropped we would not face much prob in entering elemnt everytime
 const products = [
     {
-        name:"iphone 7",
-        image:"https://images.unsplash.com/photo-1552072998-63ae038e4600?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aXBob25lN3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        price: 70000 ,
-        desc:"the iphone 7 is a beast"
+        name:" LV shirt",
+        image: "https://images.unsplash.com/photo-1602832339346-f7501f06e09a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnQlMjBpbWFnZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        price: 600 ,
+        desc:"This is a shirt",
+        category: "shirt"
+    },
+    {
+        name:"shirt",
+        image: "https://images.unsplash.com/photo-1602832339346-f7501f06e09a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnQlMjBpbWFnZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        price: 600 ,
+        desc:"This is a shirt2",
+        category: "shirt"
 
     },
     {
-        name:"iphone 8",
-        image:"https://images.unsplash.com/photo-1598093428081-17f985046a5b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aXBob25lOHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        price: 80000 ,
-        desc:"the iphone 8 is a beast"
+        name:"shirt",
+        image: "https://images.unsplash.com/photo-1602832339346-f7501f06e09a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnQlMjBpbWFnZXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        price: 600 ,
+        desc:"This is a shirt3",
+        category: "shirt"
+
 
     },
     {
-        name:"iphone 9",
-        image:"https://images.unsplash.com/photo-1529611239-29501290ad7b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aXBob25lOXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        price: 90000 ,
-        desc:"the iphone 10 is a beast"
+        name:"jeans",
+       image:"https://images.unsplash.com/photo-1604176354204-9268737828e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8amVhbnN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        price: 6000 ,
+        desc:"This is a JEANS",
+        category: "jeans"
+
 
     },
     {
-        name:"iphone 10",
-        image:"https://images.unsplash.com/photo-1578671999517-728f26ce77fc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aXBob25lMTB8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        price: 100000 ,
-        desc:"the iphone 10 is a beast"
+        name:"jeans",
+       image:"https://images.unsplash.com/photo-1604176354204-9268737828e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8amVhbnN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        price: 6000 ,
+        desc:"This is a JEANS2",
+        category: "jeans"
+
+    },  
+    {
+        name:"jeans",
+       image:"https://images.unsplash.com/photo-1604176354204-9268737828e4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8amVhbnN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        price: 6000 ,
+        desc:"This is a JEANS3",
+        category: "jeans"
 
     },
     {
-        name:"iphone 11",
-        image:"https://images.unsplash.com/photo-1575294613905-f99b09f070ca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aXBob25lMTF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        price: 110000 ,
-        desc:"the iphone 11 is a beast"
+        name:"kurta",
+       image:"https://images.unsplash.com/photo-1622780432053-767528938f34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1887&q=80",
+        price: 6000 ,
+        desc:"This is a kurta",
+        category: "kurta"
+
+    },
+    {
+        name:"kurta",
+       image:"https://images.unsplash.com/photo-1622780432053-767528938f34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1887&q=80",
+        price: 6000 ,
+        desc:"This is a kurta2",
+        category: "kurta"
+
+    },
+    {
+        name:"kurta",
+       image:"https://images.unsplash.com/photo-1622780432053-767528938f34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1887&q=80",
+        price: 6000 ,
+        desc:"This is a kurta3",
+        category: "kurta"
 
     }
 

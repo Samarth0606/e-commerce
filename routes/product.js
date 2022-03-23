@@ -2,7 +2,28 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
 const Review = require('../models/review');
-const {isLoggedIn} = require('../middleware');  //using curly braces becoz we hav exported function inn th middleware
+// const {isLoggedIn} = require('../middleware');  //using curly braces becoz we hav exported function inn th middleware
+
+
+//get all jeans
+router.get("/products/jeans", async(req,res)=>{
+    const jeansData =  await Product.find({category: "jeans"})
+    res.render("products/jeans", {jeansData});
+
+})
+
+  // Get all shirts
+  router.get("/products/shirt", async(req,res)=>{
+    const shirtData =  await Product.find({category: "shirt"})
+    res.render("products/shirt", {shirtData})
+  })
+
+  // Get all shirts
+  router.get("/products/kurta", async(req,res)=>{
+    const kurtaData =  await Product.find({category: "kurta"})
+    res.render("products/kurta", {kurtaData})
+  })
+
 
 
 //listing all the products
@@ -24,7 +45,8 @@ catch(e){
 })
 
 //ADDING FORM
-router.get('/products/new',isLoggedIn,(req,res)=>{
+// router.get('/products/new',isLoggedIn,(req,res)=>{
+    router.get('/products/new',(req,res)=>{
     try{
         //ye logic baar baar harr jagah likhna hoga isliye we will make a middleware and add it there
             // if(!req.isAuthenticated()){
@@ -46,7 +68,8 @@ router.get('/products/new',isLoggedIn,(req,res)=>{
 })
 
 //ADDING NEW PRODUCT VIA FORM AFTER MAKING THE NAME OBJECT IN new
-router.post('/products',isLoggedIn,async(req,res)=>{
+// router.post('/products',isLoggedIn,async(req,res)=>{
+    router.post('/products',async(req,res)=>{
     try{
             const {product} = req.body;
             await Product.create(product);
@@ -90,7 +113,8 @@ router.post('/products',isLoggedIn,async(req,res)=>{
 
 
  //creating new form for editing AND UPDATING
- router.get('/products/:id/edit', isLoggedIn,async(req,res)=>{
+//  router.get('/products/:id/edit', isLoggedIn,async(req,res)=>{
+    router.get('/products/:id/edit',async(req,res)=>{
      try{
         const {id} = req.params;
         const product = await Product.findById(id);
@@ -109,7 +133,8 @@ router.post('/products',isLoggedIn,async(req,res)=>{
 
 
  //updating new form for updation of editing
- router.patch('/products/:id',isLoggedIn,async(req,res)=>{
+//  router.patch('/products/:id',isLoggedIn,async(req,res)=>{
+    router.patch('/products/:id',async(req,res)=>{
      try{
         const{product} = req.body;
         const{id} = req.params;
@@ -130,7 +155,8 @@ router.post('/products',isLoggedIn,async(req,res)=>{
  })
 
  //deleteing the partiular product
- router.delete('/products/:id',isLoggedIn,async(req,res)=>{
+//  router.delete('/products/:id',isLoggedIn,async(req,res)=>{
+    router.delete('/products/:id',async(req,res)=>{
      try{
         await Product.findByIdAndDelete(req.params.id);
         res.redirect('/products');
@@ -146,7 +172,8 @@ router.post('/products',isLoggedIn,async(req,res)=>{
  })
 
  //creating a new comment
- router.post('/products/:id/review',isLoggedIn,async(req,res)=>{
+//  router.post('/products/:id/review',isLoggedIn,async(req,res)=>{
+    router.post('/products/:id/review',async(req,res)=>{
      try{
           // res.send("namaste");
      const {id} = req.params;
@@ -175,7 +202,8 @@ router.post('/products',isLoggedIn,async(req,res)=>{
 
 
   //deleteing the partiular review
-  router.delete('/products/:id/:idreview', isLoggedIn,async(req,res)=>{
+//   router.delete('/products/:id/:idreview', isLoggedIn,async(req,res)=>{
+    router.delete('/products/:id/:idreview',async(req,res)=>{
       try{
           const{idreview} = req.params;
           // console.log("sam");
@@ -195,10 +223,16 @@ router.post('/products',isLoggedIn,async(req,res)=>{
   })
 
 
+
+
+//   get all the jeans
+
+
   //error page
-  router.get('/error',(req,res)=>{
-      res.render('error');
-  })
+//   router.get('/error',(req,res)=>{
+//       res.render('error');
+//   })
+
 
 
 module.exports = router;

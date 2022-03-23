@@ -13,10 +13,7 @@ const passport = require('passport');
 
 //id:samarthvohra.india@gmail.com pass:12345 name:sam --- incase bhoo jaao to
 
-//register kre ke liye
-router.get('/register',async(req,res)=>{
-    res.render('auth/signup');
-})
+
 
 router.post('/register',async (req,res)=>{
     try{
@@ -49,7 +46,6 @@ router.post('/login',
                                     failureRedirect:'/login',
                                             failureFlash:true }),
                                             (req,res)=>{
-                                                req.flash('success',`Welcome back ${req.user.username} to Shopping Cart`)
                                                 console.log(req.user);
                                     res.redirect('/products');
     });
@@ -57,7 +53,6 @@ router.post('/login',
 
 router.get('/logout',(req,res)=>{
     req.logout();
-    req.flash('success','logged out successfully');
     res.redirect('/login');
 })
 

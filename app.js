@@ -87,10 +87,10 @@ app.use(productRoutes);
 app.use(authRoutes);
 
     app.get('/',(req,res)=>{
-        res.send("welcome to landing page");
+        res.redirect("/products")
     })
 
 
-app.listen(3000,()=>{
-    console.log("server running at port 3000");
+app.listen(8080,()=>{
+    console.log("server running at port 8080");
 })
